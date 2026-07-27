@@ -46,7 +46,7 @@ if !errorlevel! equ 0 (
     echo [%time%] 网络正常，VPN 已连接。>> "%LOG_FILE%"
 ) else (
     echo [%time%] 检测到断开，正在尝试重连... >> "%LOG_FILE%"
-    rasdial "%VPN_NAME%" "autouser" "%VPN_PWD%" >> "%LOG_FILE%" 2>&1
+    rasdial "%VPN_NAME%" "%VPN_NAME%" "%VPN_PWD%" >> "%LOG_FILE%" 2>&1
     if !errorlevel! equ 0 (
         echo [%time%] 重连成功！ >> "%LOG_FILE%"
        set FAIL_COUNT=0
